@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Dodge Runner</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0f172a; overflow: hidden; }
+  canvas { display: block; margin: 0 auto; background: #1e293b; touch-action: none; }
+  #hud {
+    position: fixed; top: 8px; left: 50%; transform: translateX(-50%);
+    color: #fff; font: bold 16px system-ui, sans-serif; user-select: none;
+  }
+  #overlay {
+    position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
+    flex-direction: column; gap: 8px; color: #fff; font: 16px system-ui, sans-serif;
+    background: rgba(0,0,0,0.6);
+  }
+  #overlay button {
+    padding: 8px 16px; font: bold 14px system-ui, sans-serif; border: none;
+    border-radius: 8px; background: #22c55e; color: #fff; cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div id="hud">Score: 0</div>
+<canvas id="game" width="480" height="600"></canvas>
+<div id="overlay">
+  <div id="overlayText">Game Over</div>
+  <button id="restart">Restart</button>
+</div>
+<script>
+  const canvas = document.getElementById("game");
+  const ctx = canvas.getContext("2d");
+  const hud = document.getElementById("hud");
+  const overlay = document.getElementById("overlay");
+  const overlayText = document.getElementById("overlayText");
+  const restartBtn = document.getElementById("restart");
+
+  const W = canvas.width, H = canvas.height;
+  const player = { w: 36, h: 36, x: W / 2 - 18, y: H - 60, speed: 6 };
+  let blocks = [];
+  let keys = {};
+  let score = 0;
+  let spawnTimer = 0;
+  let spawnInterval = 60;
+  let running = true;
+
+  function reset() {
+    blocks = [];
+    score = 0;
+    spawnTimer = 0;
+    spawnInterval = 60;
+    player.x = W / 2 - player.w / 2;
+    running = true;
+    overlay.style.display = "none";
+  }
+
+  function spawnBlock() {
+    const size = 20 + Math.random() * 30;
+    blocks.push({
+      x: Math.random() * (W - size),
+      y: -size,
+      w: size,
+      h: size,
+      speed: 2 + Math.random() * 2 + score / 500,
+    });
+  }
+
+  function update() {
+    if (!running) return;
+
+    if (keys["ArrowLeft"] || keys["a"]) player.x -= player.speed;
+    if (keys["ArrowRight"] || keys["d"]) player.x += player.speed;
+    player.x = Math.max(0, Math.min(W - player.w, player.x));
+
+    spawnTimer++;
+    if (spawnTimer >= spawnInterval) {
+      spawnTimer = 0;
+      spawnInterval = Math.max(18, spawnInterval - 0.5);
+      spawnBlock();
+    }
+
+    for (const b of blocks) b.y += b.speed;
+    blocks = blocks.filter((b) => b.y < H + 40);
+
+    for (const b of blocks) {
+      if (
+        player.x < b.x + b.w &&
+        player.x + player.w > b.x &&
+        player.y < b.y + b.h &&
+        player.y + player.h > b.y
+      ) {
+        running = false;
+        overlayText.textContent = "Game Over — Score: " + score;
+        overlay.style.display = "flex";
+      }
+    }
+
+    score++;
+    hud.textContent = "Score: " + score;
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = "#22c55e";
+    ctx.fillRect(player.x, player.y, player.w, player.h);
+    ctx.fillStyle = "#ef4444";
+    for (const b of blocks) ctx.fillRect(b.x, b.y, b.w, b.h);
+  }
+
+  function loop() {
+    update();
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  window.addEventListener("keydown", (e) => (keys[e.key] = true));
+  window.addEventListener("keyup", (e) => (keys[e.key] = false));
+  restartBtn.addEventListener("click", reset);
+
+  canvas.addEventListener("pointerdown", (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    keys["ArrowLeft"] = x < W / 2;
+    keys["ArrowRight"] = x >= W / 2;
+  });
+  canvas.addEventListener("pointerup", () => {
+    keys["ArrowLeft"] = false;
+    keys["ArrowRight"] = false;
+  });
+
+  loop();
+</script>
+</body>
+</html>

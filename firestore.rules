@@ -1,0 +1,18 @@
+rules_version = '2';
+
+// Paste this into Firebase Console → Firestore Database → Rules
+// (or deploy with `firebase deploy --only firestore:rules` once you've
+// set up the Firebase CLI and linked this project).
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /likes/{gameSlug} {
+      allow read: if true;
+      allow write: if request.auth != null;
+
+      match /likedBy/{userId} {
+        allow read: if true;
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}

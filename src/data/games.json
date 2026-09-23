@@ -1,0 +1,383 @@
+[
+  {
+    "slug": "dodge-runner",
+    "title": "Dodge Runner",
+    "description": "Steer left and right to dodge falling blocks and survive as long as you can.",
+    "category": "Arcade",
+    "color": "#22c55e",
+    "thumbnail": "/thumbnails/dodge-runner.svg",
+    "type": "play",
+    "playUrl": "/games/dodge-runner/index.html"
+  },
+  {
+    "slug": "stunt-bike-racing",
+    "title": "Bike Games: Stunt Bike Racing",
+    "description": "Race and pull off stunts on a dirt bike across tricky tracks.",
+    "category": "Racing",
+    "color": "#f97316",
+    "thumbnail": "https://img.gamedistribution.com/2062e395d192424690690a3d0783d27f-512x512.jpg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "2062e395d192424690690a3d0783d27f"
+  },
+  {
+    "slug": "moto-x3m",
+    "title": "Moto X3M Bike Race Game",
+    "description": "25 challenging bike racing levels full of obstacles and stunts.",
+    "category": "Racing",
+    "color": "#eab308",
+    "thumbnail": "https://img.gamedistribution.com/5b0abd4c0faa4f5eb190a9a16d5a1b4c-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "5b0abd4c0faa4f5eb190a9a16d5a1b4c"
+  },
+  {
+    "slug": "bubble-game-3",
+    "title": "Bubble Game 3",
+    "description": "Classic bubble-popping puzzle action.",
+    "category": "Puzzle",
+    "color": "#06b6d4",
+    "thumbnail": "https://img.gamedistribution.com/27673bc45d2e4b27b7cd24e422f7c257-512x512.jpg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "27673bc45d2e4b27b7cd24e422f7c257"
+  },
+  {
+    "slug": "vex-4",
+    "title": "Vex 4",
+    "description": "A fast-paced stickman obstacle runner with 9 acts and hard modes.",
+    "category": "Arcade",
+    "color": "#8b5cf6",
+    "thumbnail": "https://img.gamedistribution.com/80e6a5ae477f4d4fbcd1ea293d10087d-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "80e6a5ae477f4d4fbcd1ea293d10087d"
+  },
+  {
+    "slug": "color-tunnel",
+    "title": "Color Tunnel",
+    "description": "Race through a neon tunnel, dodging obstacles that match your color.",
+    "category": "Arcade",
+    "color": "#3b82f6",
+    "thumbnail": "https://img.gamedistribution.com/b067ade7a13a4d50bc3f65e2401b55c8-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "b067ade7a13a4d50bc3f65e2401b55c8"
+  },
+  {
+    "slug": "stack-fire-ball",
+    "title": "Stack Fire Ball",
+    "description": "Smash, bump and bounce through revolving helix platforms to reach the end.",
+    "category": "Arcade",
+    "color": "#fb923c",
+    "thumbnail": "https://img.gamedistribution.com/0ccc9c4304ad4c9788ac87ea179816f4-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "0ccc9c4304ad4c9788ac87ea179816f4"
+  },
+  {
+    "slug": "stack-ball-2",
+    "title": "Stack Ball 2",
+    "description": "Drop through spinning platforms and smash your way to the bottom.",
+    "category": "Arcade",
+    "color": "#a855f7",
+    "thumbnail": "https://img.gamedistribution.com/3544a1ee19d246e8a875a81f2d90e314-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "3544a1ee19d246e8a875a81f2d90e314"
+  },
+  {
+    "slug": "stack-ball",
+    "title": "Stack Ball",
+    "description": "The original helix-smashing arcade classic.",
+    "category": "Arcade",
+    "color": "#c026d3",
+    "thumbnail": "https://img.gamedistribution.com/5e3ad8d8da854ba5985ac78212520238-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "5e3ad8d8da854ba5985ac78212520238"
+  },
+  {
+    "slug": "basketball-stars",
+    "title": "Basketball Stars",
+    "description": "Pick your team and pull off dunks and 3-pointers in a 2-player tournament.",
+    "category": "Sports",
+    "color": "#ea580c",
+    "thumbnail": "https://img.gamedistribution.com/69d78d071f704fa183d75b4114ae40ec-512x512.jpg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "69d78d071f704fa183d75b4114ae40ec"
+  },
+  {
+    "slug": "traffic-rider",
+    "title": "Traffic Rider",
+    "description": "Weave through highway traffic on your motorcycle and beat the clock.",
+    "category": "Racing",
+    "color": "#0ea5e9",
+    "thumbnail": "https://img.gamedistribution.com/2c913ff625694c2fb4df4b63b3151331-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "2c913ff625694c2fb4df4b63b3151331"
+  },
+  {
+    "slug": "traffic-jam-3d",
+    "title": "Traffic Jam 3D",
+    "description": "Untangle the gridlock by carefully moving cars out of the jam.",
+    "category": "Puzzle",
+    "color": "#f59e0b",
+    "thumbnail": "https://img.gamedistribution.com/337302b23b5943d8bcfc501d81d50cdb-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "337302b23b5943d8bcfc501d81d50cdb"
+  },
+  {
+    "slug": "highway-traffic",
+    "title": "Highway Traffic",
+    "description": "Weave through fast-moving highway traffic without crashing.",
+    "category": "Racing",
+    "color": "#14b8a6",
+    "thumbnail": "https://img.gamedistribution.com/7c151f5e29eb40a591edfe1823e1d0ea-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "7c151f5e29eb40a591edfe1823e1d0ea"
+  },
+  {
+    "slug": "soccer-skills-runner",
+    "title": "Soccer Skills Runner",
+    "description": "Swerve, jump and duck past opponents while running the pitch.",
+    "category": "Sports",
+    "color": "#16a34a",
+    "thumbnail": "https://img.gamedistribution.com/54df6d78ccde4de1b41acadb002f1722.jpg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "54df6d78ccde4de1b41acadb002f1722"
+  },
+  {
+    "slug": "draw-climber-online",
+    "title": "Draw Climber",
+    "description": "Draw a pair of legs and race your block to the finish line.",
+    "category": "Arcade",
+    "color": "#ec4899",
+    "thumbnail": "https://img.gamedistribution.com/761c53809343478e81bb29fa3bd901ce-512x384.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "761c53809343478e81bb29fa3bd901ce"
+  },
+  {
+    "slug": "helix-jump",
+    "title": "Helix Jump",
+    "description": "Guide a bouncing ball down a spiral tower, avoiding the red platforms.",
+    "category": "Arcade",
+    "color": "#6366f1",
+    "thumbnail": "https://img.gamedistribution.com/544cf55c6ad44a3299099e813f7f5a9d-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "544cf55c6ad44a3299099e813f7f5a9d"
+  },
+  {
+    "slug": "helix-jump-2",
+    "title": "Helix Jump 2",
+    "description": "The sequel to the addictive spiral-tower bouncing game.",
+    "category": "Arcade",
+    "color": "#4f46e5",
+    "thumbnail": "https://img.gamedistribution.com/c8f28089276c4d4eb8501a1f847843de-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "c8f28089276c4d4eb8501a1f847843de"
+  },
+  {
+    "slug": "sniper-elite-3d",
+    "title": "Sniper Elite 3D",
+    "description": "Line up the perfect shot in this precision sniper shooter.",
+    "category": "Action",
+    "color": "#334155",
+    "thumbnail": "https://img.gamedistribution.com/642dfd66d764496ab2102d688c63ef36-512x512.jpg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "642dfd66d764496ab2102d688c63ef36"
+  },
+  {
+    "slug": "sniper-clash-3d",
+    "title": "Sniper Clash 3D",
+    "description": "Infiltrate as a secret agent sniper and complete each mission.",
+    "category": "Action",
+    "color": "#1e293b",
+    "thumbnail": "https://img.gamedistribution.com/0d576926ed70418aa0e555b5f9d0ddc9-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "0d576926ed70418aa0e555b5f9d0ddc9"
+  },
+  {
+    "slug": "pool-8-ball",
+    "title": "8 Ball Pool",
+    "description": "Classic billiards — play solo against the clock or pass-and-play with a friend.",
+    "category": "Sports",
+    "color": "#15803d",
+    "thumbnail": "https://img.gamedistribution.com/587cc8f8b84b484f9267a7ec1caa5328-512x384.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "587cc8f8b84b484f9267a7ec1caa5328"
+  },
+  {
+    "slug": "bike-stunt-race-master-3d",
+    "title": "Bike Stunt Race Master 3D",
+    "description": "Pull off high-flying stunts across dirt-bike tracks.",
+    "category": "Racing",
+    "color": "#c2410c",
+    "thumbnail": "https://img.gamedistribution.com/a81c87f3a54f436eb152eb8654a6b254-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "a81c87f3a54f436eb152eb8654a6b254"
+  },
+  {
+    "slug": "fireboy-watergirl-1",
+    "title": "Fireboy and Watergirl: Forest Temple",
+    "description": "Team up to explore the Forest Temple — Fireboy avoids water, Watergirl avoids fire.",
+    "category": "Puzzle",
+    "color": "#059669",
+    "thumbnail": "https://img.gamedistribution.com/a55c9cc9c21e4fc683c8c6857f3d0c75-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "a55c9cc9c21e4fc683c8c6857f3d0c75"
+  },
+  {
+    "slug": "fireboy-watergirl-2",
+    "title": "Fireboy and Watergirl 2: Light Temple",
+    "description": "The co-op puzzle-platformer continues in the Light Temple.",
+    "category": "Puzzle",
+    "color": "#0d9488",
+    "thumbnail": "https://img.gamedistribution.com/383ad09b92c7446b9113cccc29630517-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "383ad09b92c7446b9113cccc29630517"
+  },
+  {
+    "slug": "zombie-killer",
+    "title": "Zombie Killer",
+    "description": "Drive and survive an onslaught of zombies on the road.",
+    "category": "Action",
+    "color": "#7f1d1d",
+    "thumbnail": "https://img.gamedistribution.com/58123f23619347ec868bf2892a0b7ec5.jpg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "58123f23619347ec868bf2892a0b7ec5"
+  },
+  {
+    "slug": "zombie-paradise-fury-road",
+    "title": "Zombie Paradise: Fury Road",
+    "description": "Drive an endless road and crush zombies to survive.",
+    "category": "Action",
+    "color": "#991b1b",
+    "thumbnail": "https://img.gamedistribution.com/1ffff2ee2c464fde9263b88dd5350d14-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "1ffff2ee2c464fde9263b88dd5350d14"
+  },
+  {
+    "slug": "slope-racing",
+    "title": "Slope Racing",
+    "description": "Drive down a procedurally generated slope, collecting coins at speed.",
+    "category": "Arcade",
+    "color": "#db2777",
+    "thumbnail": "https://img.gamedistribution.com/085dc5ea4b1f4b3b8d0b59d2332b2dfc-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "085dc5ea4b1f4b3b8d0b59d2332b2dfc"
+  },
+  {
+    "slug": "slope-ball",
+    "title": "Slope Ball",
+    "description": "Roll down an endless slope, dodging obstacles as speed builds.",
+    "category": "Arcade",
+    "color": "#9333ea",
+    "thumbnail": "https://img.gamedistribution.com/8591784201f445788946a1aaff65b11c-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "8591784201f445788946a1aaff65b11c"
+  },
+  {
+    "slug": "parking-jam-online",
+    "title": "Parking Jam",
+    "description": "Clear the lot by sliding every vehicle out of the jam.",
+    "category": "Puzzle",
+    "color": "#2563eb",
+    "thumbnail": "https://img.gamedistribution.com/7de4c5be03af47feb0fb9ada3276ac72-512x384.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "7de4c5be03af47feb0fb9ada3276ac72"
+  },
+  {
+    "slug": "ludo-online",
+    "title": "Ludo Online",
+    "description": "The classic dice board game — race your tokens home first.",
+    "category": "Board",
+    "color": "#dc2626",
+    "thumbnail": "https://img.gamedistribution.com/59e5f4afa2a341599d9eb63fd324a928-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "59e5f4afa2a341599d9eb63fd324a928"
+  },
+  {
+    "slug": "paper-io-2",
+    "title": "Paper.io 2",
+    "description": "Claim territory, cut off rivals, and grow your area in this .io game.",
+    "category": ".io",
+    "color": "#10b981",
+    "thumbnail": "https://img.gamedistribution.com/c5d4966b176246748d6c847103ebfd51-512x512.jpeg",
+    "type": "embed",
+    "provider": "gamedistribution",
+    "gdId": "c5d4966b176246748d6c847103ebfd51"
+  },
+  {
+    "slug": "poly-drift",
+    "title": "Poly Drift",
+    "description": "A physics-based track racer with drift mechanics. Available as a native download for desktop and mobile.",
+    "category": "Racing",
+    "color": "#ef4444",
+    "thumbnail": "/thumbnails/poly-drift.svg",
+    "type": "download",
+    "version": "v0.1.0",
+    "releases": [
+      {
+        "platform": "windows",
+        "label": "Windows (x64)",
+        "filename": "PolyDrift-v0.1.0-win32-x64.zip",
+        "size": "140 MB",
+        "date": "6 days ago",
+        "url": "/downloads/poly-drift/PolyDrift-v0.1.0-win32-x64.zip"
+      },
+      {
+        "platform": "windows",
+        "label": "Windows (ARM64)",
+        "filename": "PolyDrift-v0.1.0-win32-arm64.zip",
+        "size": "140 MB",
+        "date": "just now",
+        "url": "/downloads/poly-drift/PolyDrift-v0.1.0-win32-arm64.zip"
+      },
+      {
+        "platform": "linux",
+        "label": "Linux (x64)",
+        "filename": "PolyDrift-v0.1.0-linux-x64.tar.gz",
+        "size": "118 MB",
+        "date": "6 days ago",
+        "url": "/downloads/poly-drift/PolyDrift-v0.1.0-linux-x64.tar.gz"
+      },
+      {
+        "platform": "mac",
+        "label": "macOS (Apple Silicon)",
+        "filename": "PolyDrift-v0.1.0-darwin-arm64.zip",
+        "size": "117 MB",
+        "date": "6 days ago",
+        "url": "/downloads/poly-drift/PolyDrift-v0.1.0-darwin-arm64.zip"
+      },
+      {
+        "platform": "android",
+        "label": "Android",
+        "filename": "PolyDrift-Android-v0.1.0.apk",
+        "size": "33 MB",
+        "date": "6 days ago",
+        "url": "/downloads/poly-drift/PolyDrift-Android-v0.1.0.apk"
+      }
+    ]
+  }
+]
