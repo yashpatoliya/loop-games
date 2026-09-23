@@ -85,27 +85,27 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
       onClick={onClose}
     >
       <div
-        className="w-full max-w-sm rounded-2xl bg-neutral-900 p-6 shadow-2xl ring-1 ring-white/10"
+        className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-black/10 dark:bg-neutral-900 dark:ring-white/10"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-5 flex items-center justify-between">
-          <h2 className="text-lg font-bold text-white">
+          <h2 className="text-lg font-bold text-neutral-900 dark:text-white">
             {mode === "signup" ? "Create your account" : "Sign in"}
           </h2>
           <button
             type="button"
             aria-label="Close"
             onClick={onClose}
-            className="rounded-full p-1 text-neutral-400 transition hover:bg-white/10 hover:text-white"
+            className="rounded-full p-1 text-neutral-500 transition hover:bg-black/5 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-white/10 dark:hover:text-white"
           >
             ✕
           </button>
         </div>
 
         {!firebaseEnabled ? (
-          <p className="rounded-lg bg-amber-500/10 p-3 text-sm text-amber-300">
+          <p className="rounded-lg bg-amber-500/10 p-3 text-sm text-amber-700 dark:text-amber-300">
             Sign-in isn&apos;t configured yet — add your Firebase project keys to
-            <code className="mx-1 rounded bg-black/30 px-1">.env.local</code>
+            <code className="mx-1 rounded bg-black/10 px-1 dark:bg-black/30">.env.local</code>
             to enable this.
           </p>
         ) : (
@@ -114,16 +114,16 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
               type="button"
               onClick={handleGoogle}
               disabled={busy}
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-white py-2.5 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-100 disabled:opacity-60"
+              className="flex w-full items-center justify-center gap-2 rounded-full border border-black/10 bg-white py-2.5 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-100 disabled:opacity-60"
             >
               <GoogleIcon />
               Continue with Google
             </button>
 
-            <div className="my-4 flex items-center gap-3 text-xs text-neutral-500">
-              <div className="h-px flex-1 bg-white/10" />
+            <div className="my-4 flex items-center gap-3 text-xs text-neutral-500 dark:text-neutral-500">
+              <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
               or
-              <div className="h-px flex-1 bg-white/10" />
+              <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
             </div>
 
             <form onSubmit={handleEmailSubmit} className="space-y-3">
@@ -133,7 +133,7 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-lg border border-white/10 bg-neutral-950 px-3 py-2.5 text-sm text-white outline-none transition placeholder:text-neutral-500 focus:border-teal-400"
+                className="w-full rounded-lg border border-black/10 bg-neutral-50 px-3 py-2.5 text-sm text-neutral-900 outline-none transition placeholder:text-neutral-400 focus:border-teal-500 dark:border-white/10 dark:bg-neutral-950 dark:text-white dark:placeholder:text-neutral-500 dark:focus:border-teal-400"
               />
               <input
                 type="password"
@@ -142,10 +142,10 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full rounded-lg border border-white/10 bg-neutral-950 px-3 py-2.5 text-sm text-white outline-none transition placeholder:text-neutral-500 focus:border-teal-400"
+                className="w-full rounded-lg border border-black/10 bg-neutral-50 px-3 py-2.5 text-sm text-neutral-900 outline-none transition placeholder:text-neutral-400 focus:border-teal-500 dark:border-white/10 dark:bg-neutral-950 dark:text-white dark:placeholder:text-neutral-500 dark:focus:border-teal-400"
               />
 
-              {error && <p className="text-sm text-red-400">{error}</p>}
+              {error && <p className="text-sm text-red-600 dark:text-red-400">{error}</p>}
 
               <button
                 type="submit"
@@ -156,7 +156,7 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
               </button>
             </form>
 
-            <p className="mt-4 text-center text-sm text-neutral-400">
+            <p className="mt-4 text-center text-sm text-neutral-500 dark:text-neutral-400">
               {mode === "signup" ? (
                 <>
                   Already have an account?{" "}
@@ -166,7 +166,7 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
                       setMode("signin");
                       setError("");
                     }}
-                    className="font-semibold text-teal-400 hover:text-teal-300"
+                    className="font-semibold text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
                   >
                     Sign in
                   </button>
@@ -180,7 +180,7 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
                       setMode("signup");
                       setError("");
                     }}
-                    className="font-semibold text-teal-400 hover:text-teal-300"
+                    className="font-semibold text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
                   >
                     Sign up
                   </button>

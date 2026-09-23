@@ -99,7 +99,7 @@ export default function SupportPage() {
       <div className="space-y-8">
         {SECTIONS.map((section) => (
           <div key={section.heading}>
-            <h2 className="mb-3 text-lg font-bold text-white">
+            <h2 className="mb-3 text-lg font-bold text-neutral-900 dark:text-white">
               {section.heading}
             </h2>
             <div className="flex flex-wrap gap-2">
@@ -107,7 +107,7 @@ export default function SupportPage() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="rounded-full bg-neutral-900 px-4 py-2 text-sm font-medium text-neutral-300 ring-1 ring-white/10 transition hover:bg-neutral-800 hover:text-white"
+                  className="rounded-full bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-600 ring-1 ring-black/5 transition hover:bg-neutral-200 hover:text-neutral-900 dark:bg-neutral-900 dark:text-neutral-300 dark:ring-white/10 dark:hover:bg-neutral-800 dark:hover:text-white"
                 >
                   {link.label}
                 </a>
@@ -118,21 +118,21 @@ export default function SupportPage() {
       </div>
 
       <div className="mt-12">
-        <h2 className="mb-4 text-lg font-bold text-white">
+        <h2 className="mb-4 text-lg font-bold text-neutral-900 dark:text-white">
           Frequently asked questions
         </h2>
-        <div className="divide-y divide-white/5 rounded-2xl bg-neutral-900 ring-1 ring-white/10">
+        <div className="divide-y divide-black/5 rounded-2xl bg-neutral-50 ring-1 ring-black/5 dark:divide-white/5 dark:bg-neutral-900 dark:ring-white/10">
           {FAQ.map((item) => (
             <details key={item.id} id={item.id} className="group p-4">
-              <summary className="cursor-pointer list-none text-sm font-semibold text-white marker:content-none">
+              <summary className="cursor-pointer list-none text-sm font-semibold text-neutral-900 marker:content-none dark:text-white">
                 <span className="flex items-center justify-between gap-3">
                   {item.q}
-                  <span className="shrink-0 text-neutral-500 transition group-open:rotate-45">
+                  <span className="shrink-0 text-neutral-400 transition group-open:rotate-45 dark:text-neutral-500">
                     +
                   </span>
                 </span>
               </summary>
-              <p className="mt-2 text-sm text-neutral-400">{item.a}</p>
+              <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">{item.a}</p>
             </details>
           ))}
         </div>
@@ -140,7 +140,7 @@ export default function SupportPage() {
 
       <p className="mt-8 text-sm text-neutral-500">
         Still need help?{" "}
-        <Link href="/" className="font-semibold text-teal-400 hover:text-teal-300">
+        <Link href="/" className="font-semibold text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">
           Head back to all games
         </Link>{" "}
         or use the Feedback button to reach us.

@@ -3,9 +3,9 @@ import { getGame, getGames } from "@/lib/games";
 import { getRequestOrigin } from "@/lib/request";
 import GamePlayerPage from "@/components/GamePlayerPage";
 
-export function generateStaticParams() {
-  return getGames().map((game) => ({ slug: game.slug }));
-}
+// No generateStaticParams here on purpose — pre-rendering a static page per
+// game doesn't scale to a 21k-game catalog. Pages render on-demand instead
+// (dynamicParams defaults to true).
 
 export default async function GamePage({
   params,
@@ -18,9 +18,14 @@ export default async function GamePage({
   if (!game) notFound();
 
   const { host, proto } = await getRequestOrigin();
-  const more = getGames()
-    .filter((g) => g.slug !== game.slug)
-    .slice(0, 8);
+  const others = getGames().filter((g) => g.slug !== game.slug);
+  const sameCategory = others.filter((g) =>
+    g.categories.some((c) => game.categories.includes(c)),
+  );
+  const more = [
+    ...sameCategory,
+    ...others.filter((g) => !sameCategory.includes(g)),
+  ].slice(0, 8);
 
   return (
     <GamePlayerPage game={game} host={host} proto={proto} more={more} />

@@ -1,12 +1,15 @@
 import { notFound } from "next/navigation";
 import GameRow from "@/components/GameRow";
-import AllGamesGrid from "@/components/AllGamesGrid";
+import InfiniteGameGrid from "@/components/InfiniteGameGrid";
+import { categorySlug } from "@/lib/gameHelpers";
 import {
-  categorySlug,
   getCategories,
   getCategoryBySlug,
   getGames,
+  getGamesPage,
 } from "@/lib/games";
+
+const ROW_SIZE = 20;
 
 export function generateStaticParams() {
   return getCategories().map((category) => ({
@@ -25,29 +28,40 @@ export default async function CategoryPage({
   if (!category) notFound();
 
   const games = getGames();
-  const inCategory = games.filter((g) => g.category === category);
-  const otherCategories = getCategories().filter((c) => c !== category);
+  const { games: firstPage, page, totalPages, total } = getGamesPage({
+    page: 1,
+    category,
+  });
+  const otherCategories = getCategories()
+    .filter((c) => c !== category)
+    .slice(0, 8);
 
   return (
     <div className="pb-12 pt-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-extrabold text-white sm:text-4xl">
+        <h1 className="text-3xl font-extrabold text-neutral-900 dark:text-white sm:text-4xl">
           {category}
         </h1>
-        <p className="mt-2 text-neutral-400">
-          {inCategory.length} game{inCategory.length === 1 ? "" : "s"} in this
-          category
+        <p className="mt-2 text-neutral-500 dark:text-neutral-400">
+          {total} game{total === 1 ? "" : "s"} in this category
         </p>
       </div>
 
-      <AllGamesGrid games={inCategory} />
+      <InfiniteGameGrid
+        initialGames={firstPage}
+        initialPage={page}
+        initialTotalPages={totalPages}
+        category={category}
+      />
 
       <div className="mt-10">
         {otherCategories.map((c) => (
           <GameRow
             key={c}
             heading={`Because you enjoy ${c} games`}
-            games={games.filter((g) => g.category === c)}
+            games={games
+              .filter((g) => g.categories.includes(c))
+              .slice(0, ROW_SIZE)}
           />
         ))}
       </div>

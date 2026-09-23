@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import type { Game } from "@/lib/games";
-import { getEmbedSrc } from "@/lib/games";
+import { getEmbedSrc } from "@/lib/gameHelpers";
 import GameFrame from "@/components/GameFrame";
 import GamePlayerBar from "@/components/GamePlayerBar";
 import GameRowCard from "@/components/GameRowCard";
@@ -39,11 +39,11 @@ export default function GamePlayerPage({
   }
 
   return (
-    <div className="flex h-screen flex-col bg-neutral-950">
+    <div className="flex h-screen flex-col bg-white dark:bg-neutral-950">
       <GamePlayerBar game={game} onFullscreen={toggleFullscreen} />
 
       <div className="flex min-h-0 flex-1">
-        <div ref={stageRef} className="relative min-h-0 flex-1 bg-neutral-900">
+        <div ref={stageRef} className="relative min-h-0 flex-1 bg-neutral-100 dark:bg-neutral-900">
           {game.type === "play" && (
             <GameFrame
               src={game.playUrl}
@@ -100,21 +100,21 @@ export default function GamePlayerPage({
         </div>
 
         {more.length > 0 && (
-          <aside className="hidden w-72 shrink-0 flex-col overflow-y-auto p-4 lg:flex">
-            <div className="mb-6 rounded-lg bg-neutral-900 px-3 py-2.5">
+          <aside className="hidden w-72 shrink-0 flex-col overflow-y-auto border-l border-black/5 p-4 dark:border-white/5 lg:flex">
+            <div className="mb-6 rounded-lg bg-neutral-100 px-3 py-2.5 dark:bg-neutral-900">
               {user ? (
-                <p className="truncate text-sm text-neutral-300">
+                <p className="truncate text-sm text-neutral-600 dark:text-neutral-300">
                   Welcome back, {user.displayName ?? user.email}
                 </p>
               ) : (
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-neutral-300">
+                  <span className="text-sm text-neutral-600 dark:text-neutral-300">
                     Sign in for a better experience
                   </span>
                   <button
                     type="button"
                     onClick={openSignIn}
-                    className="shrink-0 text-sm font-semibold text-teal-400 hover:text-teal-300"
+                    className="shrink-0 text-sm font-semibold text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
                   >
                     Sign in
                   </button>
@@ -122,7 +122,7 @@ export default function GamePlayerPage({
               )}
             </div>
 
-            <h2 className="mb-3 text-sm font-bold text-white">
+            <h2 className="mb-3 text-sm font-bold text-neutral-900 dark:text-white">
               People Also Played
             </h2>
             <div className="grid grid-cols-2 gap-3">

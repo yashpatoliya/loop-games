@@ -2,16 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Game } from "@/lib/games";
 import { baselineLikes, formatLikeCount } from "@/lib/likes";
-
-const CATEGORY_ICON: Record<string, string> = {
-  Racing: "🏎️",
-  Arcade: "🕹️",
-  Puzzle: "🧩",
-  Sports: "⚽",
-  Action: "🔫",
-  Board: "🎲",
-  ".io": "🌐",
-};
+import { CATEGORY_ICON } from "@/lib/categoryIcons";
 
 function shade(hex: string, amt: number) {
   const n = parseInt(hex.slice(1), 16);
@@ -44,7 +35,7 @@ export default function GameRowCard({
       rel="noopener noreferrer"
       className={`group block shrink-0 snap-start ${widthClass}`}
     >
-      <div className="relative aspect-square overflow-hidden rounded-xl bg-neutral-800 shadow-md ring-1 ring-white/5 transition-transform duration-200 ease-out group-hover:scale-[1.03]">
+      <div className="relative aspect-square overflow-hidden rounded-xl bg-neutral-200 shadow-md ring-1 ring-black/5 transition-transform duration-200 ease-out group-hover:scale-[1.03] dark:bg-neutral-800 dark:ring-white/5">
         {game.thumbnail ? (
           <Image
             src={game.thumbnail}
@@ -76,10 +67,10 @@ export default function GameRowCard({
           </span>
         )}
       </div>
-      <p className="mt-1.5 truncate text-sm font-semibold text-white">
+      <p className="mt-1.5 truncate text-sm font-semibold text-neutral-900 dark:text-white">
         {game.title}
       </p>
-      <p className="truncate text-xs text-neutral-400">
+      <p className="truncate text-xs text-neutral-500 dark:text-neutral-400">
         {game.category} · 👍 {formatLikeCount(baselineLikes(game.slug))}
       </p>
     </Link>

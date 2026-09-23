@@ -12,12 +12,12 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-neutral-950">
+    <header className="sticky top-0 z-40 bg-white dark:bg-neutral-950">
       <div className="flex h-16 w-full items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
           <Logo size={32} />
-          <span className="text-lg font-extrabold tracking-tight text-white">
-            Loop<span className="text-teal-400">Games</span>
+          <span className="text-lg font-extrabold tracking-tight text-neutral-900 dark:text-white">
+            Loop<span className="text-teal-500 dark:text-teal-400">Games</span>
           </span>
         </Link>
 
@@ -25,14 +25,14 @@ export default function Header() {
           <button
             type="button"
             aria-label="Settings"
-            className="hidden text-neutral-400 transition hover:text-white sm:block"
+            className="hidden text-neutral-500 transition hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white sm:block"
           >
             <GearIcon />
           </button>
           <button
             type="button"
             aria-label="Notifications"
-            className="hidden text-neutral-400 transition hover:text-white sm:block"
+            className="hidden text-neutral-500 transition hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white sm:block"
           >
             <BellIcon />
           </button>
@@ -42,7 +42,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMenuOpen((v) => !v)}
-                className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-teal-500 text-sm font-bold text-neutral-950 ring-2 ring-white/10 transition hover:ring-white/20"
+                className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-teal-500 text-sm font-bold text-white ring-2 ring-black/5 transition hover:ring-black/10 dark:text-neutral-950 dark:ring-white/10 dark:hover:ring-white/20"
               >
                 {user.photoURL ? (
                   <Image
@@ -58,10 +58,10 @@ export default function Header() {
               </button>
               {menuOpen && (
                 <div
-                  className="absolute right-0 top-11 w-48 rounded-lg bg-neutral-900 p-2 text-sm shadow-xl ring-1 ring-white/10"
+                  className="absolute right-0 top-11 w-48 rounded-lg bg-white p-2 text-sm shadow-xl ring-1 ring-black/10 dark:bg-neutral-900 dark:ring-white/10"
                   onMouseLeave={() => setMenuOpen(false)}
                 >
-                  <p className="truncate px-2 py-1.5 text-neutral-400">
+                  <p className="truncate px-2 py-1.5 text-neutral-500 dark:text-neutral-400">
                     {user.displayName ?? user.email}
                   </p>
                   <button
@@ -70,7 +70,7 @@ export default function Header() {
                       signOut();
                       setMenuOpen(false);
                     }}
-                    className="w-full rounded-md px-2 py-1.5 text-left font-medium text-white transition hover:bg-white/5"
+                    className="w-full rounded-md px-2 py-1.5 text-left font-medium text-neutral-900 transition hover:bg-black/5 dark:text-white dark:hover:bg-white/5"
                   >
                     Sign out
                   </button>
@@ -82,7 +82,7 @@ export default function Header() {
               type="button"
               aria-label="Sign in"
               onClick={openSignIn}
-              className="flex items-center gap-1.5 rounded-full border border-white/15 px-2.5 py-1.5 text-sm font-medium text-white transition hover:bg-white/10 sm:px-3.5"
+              className="flex items-center gap-1.5 rounded-full border border-black/15 px-2.5 py-1.5 text-sm font-medium text-neutral-900 transition hover:bg-black/5 dark:border-white/15 dark:text-white dark:hover:bg-white/10 sm:px-3.5"
             >
               <UserIcon />
               <span className="hidden sm:inline">Sign in</span>
