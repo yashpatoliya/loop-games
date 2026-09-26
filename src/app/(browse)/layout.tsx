@@ -17,9 +17,11 @@ export default function BrowseLayout({
       <MobileCategoryBar categories={categories} />
       <div className="flex w-full flex-1 gap-6 px-4 sm:px-6">
         <Sidebar categories={categories} />
-        <main className="min-w-0 flex-1">{children}</main>
+        <div className="flex min-w-0 flex-1 flex-col">
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </div>
-      <Footer />
     </div>
   );
 }

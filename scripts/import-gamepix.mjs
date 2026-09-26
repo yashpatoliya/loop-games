@@ -1,9 +1,7 @@
-// Imports a curated, quality-ranked batch of games from GamePix's public
+// Imports the full quality-ranked catalog of games from GamePix's public
 // feed (https://feeds.gamepix.com/v2/json) using our publisher sid (M3635,
-// same account declared in public/ads.txt). Kept separate from
-// src/data/games.json (the GameDistribution catalog) — GamePix games are
-// only used to feature the homepage's top row, not mixed into category
-// browsing.
+// same account declared in public/ads.txt). Merged with src/data/games.json
+// (the GameDistribution catalog) at runtime by src/lib/games.ts.
 //
 // Run: node scripts/import-gamepix.mjs
 
@@ -15,7 +13,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = join(__dirname, "..", "src", "data", "gamepix.json");
 const SID = "M3635";
 const PAGE_SIZE = 96; // feed only accepts specific values: 12, 24, 48, 96
-const TARGET_COUNT = 3000;
 const REQUEST_DELAY_MS = 150;
 
 function sleep(ms) {
@@ -85,10 +82,10 @@ function mapItem(item) {
 async function main() {
   const seen = new Map();
   let page = 1;
-  let lastPageUrl = null;
+  let lastPage = null;
 
-  while (seen.size < TARGET_COUNT) {
-    console.log(`Fetching page ${page} (have ${seen.size}/${TARGET_COUNT})...`);
+  while (true) {
+    console.log(`Fetching page ${page}/${lastPage ?? "?"} (have ${seen.size})...`);
     const data = await fetchPage(page);
     if (!data.items || data.items.length === 0) {
       console.log("No more items — feed exhausted.");
@@ -98,14 +95,15 @@ async function main() {
       if (!item.title || !item.namespace) continue;
       seen.set(item.namespace, mapItem(item));
     }
-    lastPageUrl = data.last_page_url;
-    if (data.next_url === lastPageUrl && data.next_url === data.feed_url) break;
-    if (!data.next_url) break;
+    if (data.last_page_url) {
+      lastPage = Number(new URL(data.last_page_url).searchParams.get("page"));
+    }
+    if (!data.next_url || (lastPage && page >= lastPage)) break;
     page += 1;
     await sleep(REQUEST_DELAY_MS);
   }
 
-  const games = [...seen.values()].slice(0, TARGET_COUNT);
+  const games = [...seen.values()];
   mkdirSync(dirname(OUT_PATH), { recursive: true });
   writeFileSync(OUT_PATH, JSON.stringify(games, null, 2) + "\n");
   console.log(`Wrote ${games.length} GamePix games to ${OUT_PATH}`);

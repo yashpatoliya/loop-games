@@ -45,19 +45,28 @@ export type Game = PlayGame | EmbedGame | DownloadGame;
 // read within the same server process.
 let cache: Game[] | null = null;
 let gamepixCache: EmbedGame[] | null = null;
+let allCache: Game[] | null = null;
+let categoriesCache: string[] | null = null;
 
-export function getGames(): Game[] {
-  if (!cache) {
-    const filePath = join(process.cwd(), "src", "data", "games.json");
-    const raw = readFileSync(filePath, "utf8");
-    cache = JSON.parse(raw) as Game[];
-  }
-  return cache;
+function getGameDistributionGames(): Game[] {
+  // if (!cache) {
+  //   const filePath = join(process.cwd(), "src", "data", "games.json");
+  //   const raw = readFileSync(filePath, "utf8");
+  //   cache = JSON.parse(raw) as Game[];
+  // }
+  // return cache;
+  return [];
 }
 
-// GamePix's catalog is kept separate from the main GameDistribution-backed
-// catalog — it's only used to feature a curated row, not mixed into
-// category browsing.
+// Full browsable catalog: GamePix (quality-ranked) first, then
+// GameDistribution.
+export function getGames(): Game[] {
+  if (!allCache) {
+    allCache = [...getGamepixGames(), ...getGameDistributionGames()];
+  }
+  return allCache;
+}
+
 export function getGamepixGames(): EmbedGame[] {
   if (!gamepixCache) {
     const filePath = join(process.cwd(), "src", "data", "gamepix.json");
@@ -68,20 +77,22 @@ export function getGamepixGames(): EmbedGame[] {
 }
 
 export function getGame(slug: string): Game | undefined {
-  return (
-    getGames().find((game) => game.slug === slug) ??
-    getGamepixGames().find((game) => game.slug === slug)
-  );
+  return getGames().find((game) => game.slug === slug);
 }
 
+// Ordered by number of games, largest first, so the sidebar and homepage
+// rows lead with the well-stocked categories.
 export function getCategories(): string[] {
-  const categories: string[] = [];
-  for (const g of getGames()) {
-    for (const c of g.categories) {
-      if (!categories.includes(c)) categories.push(c);
+  if (!categoriesCache) {
+    const counts = new Map<string, number>();
+    for (const g of getGames()) {
+      for (const c of g.categories) counts.set(c, (counts.get(c) ?? 0) + 1);
     }
+    categoriesCache = [...counts.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .map(([c]) => c);
   }
-  return categories;
+  return categoriesCache;
 }
 
 export function getCategoryBySlug(slug: string): string | undefined {
